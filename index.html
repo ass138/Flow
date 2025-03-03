@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Установка VPN ShadowSocks</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #e0e0e0, #f4f4f4); /* Плавный светлый градиент */
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #007bff;
+            margin-bottom: 25px;
+            font-size: 2em;
+            font-weight: bold;
+        }
+        h2 {
+            color: #333;
+            margin-top: 25px;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        p {
+            margin: 15px 0;
+            text-align: justify;
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.7;
+        }
+        .center-text {
+            text-align: center;
+        }
+
+        .center-text p {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 1.2em;
+        }
+        .center-text i {
+            font-size: 1.5em;
+            color: #0b46a0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+            margin: 20px auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 70%; /* Устанавливаем ширину в 80% от контейнера */
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .note {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 5px solid #007bff;
+            font-size: 1.2em;
+            color: #333;
+            margin: 20px 0;
+        }
+
+        .key {
+            background-color: #e0f7fa; /* Светлый фон */
+            color: #00796b; /* Темно-зеленый цвет текста */
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace; /* Моноширинный шрифт для ключа */
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            h1, h2 {
+                font-size: 1.3em;
+            }
+            p {
+                font-size: 1em;
+            }
+            img {
+                width: 100%; /* На мобильных устройствах делаем ширину 100% */
+            }
+        }
+    </style>
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<body>
+    <div class="container">
+        <h1>Установка VPN ShadowSocks</h1>
+        <p style="text-align: center;">⌛ Установка VPN займет всего 2-3 минуты</p>
+
+        <p style="text-align: center;">☝️ При возникновении любых затруднений, пиши нам в телеграмм: <a href="https://t.me/FlowVPN_support_xbot" target="_blank">@FlowVPN_support_xbot</a></p>
+        
+        <h2>1. Получи ключ доступа</h2>
+        <p>Для начала тебе нужен ключ доступа. Он начинается с <span class="key">ss://</span> и продолжается набором символов. Ключ приходил тебе после оплаты. Но если ты его потерял, то ничего страшного. Если ты покупал подписку в телеграмм-боте, его можно посмотреть в нем (https://t.me/FlowVPN_xbot)</p>
+        <img src="1.png" alt="1">
+        
+        <h2>2. Скачай приложение Outline</h2>
+        <div class="center-text">
+            <p><i class="fa-brands fa-apple"></i> Для iOS: <a href="https://apps.apple.com/us/app/outline-app/id1356177741" target="_blank">скачать</a></p>
+            <p><i class="fa-brands fa-apple"></i> Для MacOS: <a href="https://apps.apple.com/us/app/outline-app/id1356177741" target="_blank">скачать</a></p>
+            <p><i class="fa-brands fa-android"></i> Для Android: <a href="https://play.google.com/store/apps/details?id=org.outline.android.client&pli=1" target="_blank">скачать</a></p>
+            <p><i class="fa-brands fa-windows"></i> Для Windows: <a href="https://s3.amazonaws.com/outline-releases/client/windows/stable/Outline-Client.exe" target="_blank">скачать</a></p>
+            <p><i class="fa-brands fa-linux"></i> Для Linux: <a href="https://s3.amazonaws.com/outline-releases/client/linux/stable/Outline-Client.AppImage" target="_blank">скачать</a></p>
+        </div>
+        
+        <h2>3. Открой приложение Outline</h2>
+        
+        <h2>4. Вставь ключ в приложение</h2>
+        <p>Нажми кнопку со значком «+», которая находится в правом верхнем углу экрана. После вставь скопированный ключ и нажми на кнопку «Добавить сервер»</p>
+        <img src="2.png" alt="2">
+
+        <h2>5. Включи VPN</h2>
+        <p>Чтобы использовать VPN нажми на кнопку «Подключить», а если хочешь прекратить использование VPN нажми на кнопку «Отключить»</p>
+        <img src="3.png" alt="3">
+
+        <div class="note">
+            ℹ️ При первом подключении к VPN операционная система iOS может показать окно «Разрешить приложению Outline установить соединение с VPN?». Разреши.
+        </div>
+
+        <p>🎉 Готово! VPN подключён и пригоден к использованию</p>
+    </div>
+</body>
+</html>
