@@ -12,7 +12,7 @@
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(to right, #e0e0e0, #f4f4f4); /* Плавный светлый градиент */
+            background: linear-gradient(to right, #e0e0e0, #f4f4f4);
             color: #333;
             display: flex;
             justify-content: center;
@@ -53,7 +53,6 @@
         .center-text {
             text-align: center;
         }
-
         .center-text p {
             display: flex;
             align-items: center;
@@ -65,7 +64,6 @@
             font-size: 1.5em;
             color: #0b46a0;
         }
-
         img {
             max-width: 100%;
             height: auto;
@@ -73,7 +71,7 @@
             display: block;
             margin: 20px auto;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            width: 70%; /* Устанавливаем ширину в 80% от контейнера */
+            width: 70%;
         }
         a {
             color: #007bff;
@@ -92,18 +90,25 @@
             color: #333;
             margin: 20px 0;
         }
-
         .key {
-            background-color: #e0f7fa; /* Светлый фон */
-            color: #00796b; /* Темно-зеленый цвет текста */
+            background-color: #e0f7fa;
+            color: #00796b;
             font-weight: bold;
             padding: 5px 10px;
             border-radius: 5px;
-            font-family: 'Courier New', monospace; /* Моноширинный шрифт для ключа */
+            font-family: 'Courier New', monospace;
             display: inline-block;
             margin-top: 10px;
         }
-
+        video {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+            margin: 20px auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 70%;
+        }
         @media (max-width: 600px) {
             .container {
                 padding: 20px;
@@ -114,8 +119,8 @@
             p {
                 font-size: 1em;
             }
-            img {
-                width: 100%; /* На мобильных устройствах делаем ширину 100% */
+            img, video {
+                width: 100%;
             }
         }
     </style>
@@ -126,7 +131,6 @@
     <div class="container">
         <h1>Установка VPN ShadowSocks</h1>
         <p style="text-align: center;">⌛ Установка VPN займет всего 2-3 минуты</p>
-
         <p style="text-align: center;">☝️ При возникновении любых затруднений, пиши нам в телеграмм: <a href="https://t.me/FlowVPNx" target="_blank">@FlowVPNx</a></p>
         
         <h2>1. Получи ключ доступа</h2>
@@ -157,6 +161,12 @@
         </div>
 
         <p>🎉 Готово! VPN подключён и пригоден к использованию</p>
+
+        <h2>Видео-инструкция по подключению VPN</h2>
+        <video controls>
+            <source src="vpn-tutorial.mp4" type="video/mp4">
+            Ваш браузер не поддерживает воспроизведение видео.
+        </video>
     </div>
 </body>
 </html>
