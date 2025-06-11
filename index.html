@@ -1,168 +1,172 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Установка VPN ShadowSocks</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(to right, #e0e0e0, #f4f4f4);
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-        .container {
-            max-width: 800px;
-            width: 100%;
-            background: #fff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            font-size: 1.1em;
-            line-height: 1.6;
-        }
-        h1 {
-            color: #007bff;
-            margin-bottom: 25px;
-            font-size: 2em;
-            font-weight: bold;
-        }
-        h2 {
-            color: #333;
-            margin-top: 25px;
-            font-size: 1.5em;
-            font-weight: bold;
-        }
-        p {
-            margin: 15px 0;
-            text-align: justify;
-            font-size: 1.1em;
-            color: #555;
-            line-height: 1.7;
-        }
-        .center-text {
-            text-align: center;
-        }
-        .center-text p {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            font-size: 1.2em;
-        }
-        .center-text i {
-            font-size: 1.5em;
-            color: #0b46a0;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            display: block;
-            margin: 20px auto;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            width: 70%;
-        }
-        a {
-            color: #007bff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .note {
-            background-color: #f9f9f9;
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 5px solid #007bff;
-            font-size: 1.2em;
-            color: #333;
-            margin: 20px 0;
-        }
-        .key {
-            background-color: #e0f7fa;
-            color: #00796b;
-            font-weight: bold;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-family: 'Courier New', monospace;
-            display: inline-block;
-            margin-top: 10px;
-        }
-        video {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            display: block;
-            margin: 20px auto;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            width: 70%;
-        }
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px;
-            }
-            h1, h2 {
-                font-size: 1.3em;
-            }
-            p {
-                font-size: 1em;
-            }
-            img, video {
-                width: 100%;
-            }
-        }
-    </style>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Установка VPN Vless</title>
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+
+  <style>
+    /* 1. Основные переменные */
+    :root {
+      --bg-page: linear-gradient(to right, #e0e0e0, #f4f4f4);
+      --bg-container: #fff;
+      --text-primary: #333;
+      --text-secondary: #555;
+      --accent: #007bff;
+      --note-bg: #f9f9f9;
+      --note-border: #007bff;
+      --shadow: rgba(0, 0, 0, 0.1);
+      --key-bg: #e0f7fa;
+      --key-text: #00796b;
+    }
+
+    /* 2. Тёмная тема */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-page: #121212;
+        --bg-container: #1e1e1e;
+        --text-primary: #eee;
+        --text-secondary: #ccc;
+        --accent: #4dabf5;
+        --note-bg: #2a2a2a;
+        --note-border: #4dabf5;
+        --shadow: rgba(0, 0, 0, 0.5);
+        /* --key-bg и --key-text не трогаем, они остаются прежними */
+      }
+    }
+
+    /* 3. Стили */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-page);
+      color: var(--text-primary);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      transition: background .3s, color .3s;
+    }
+    .container {
+      max-width: 800px;
+      width: 100%;
+      background: var(--bg-container);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px var(--shadow);
+      text-align: center; /* весь текст по центру */
+      font-size: 1.1em;
+      line-height: 1.6;
+      transition: background .3s, box-shadow .3s;
+    }
+    h1 {
+      color: var(--accent);
+      margin-bottom: 25px;
+      font-size: 2em;
+      font-weight: bold;
+    }
+    h2 {
+      color: var(--text-primary);
+      margin-top: 25px;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    p {
+      margin: 15px 0;
+      font-size: 1.1em;
+      color: var(--text-secondary);
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .note {
+      background-color: var(--note-bg);
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 5px solid var(--note-border);
+      font-size: 1.2em;
+      color: var(--text-primary);
+      margin: 20px 0;
+      text-align: center;
+    }
+    .key {
+      background-color: var(--key-bg);
+      color: var(--key-text);
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-family: 'Courier New', monospace;
+      display: inline-block;
+      margin-top: 10px;
+    }
+    img, video {
+      max-width: 70%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+      margin: 20px auto;
+      box-shadow: 0 4px 10px var(--shadow);
+      transition: box-shadow .3s;
+    }
+    @media (max-width: 600px) {
+      .container { padding: 20px; }
+      h1, h2 { font-size: 1.3em; }
+      p { font-size: 1em; }
+      img, video { width: 100%; }
+    }
+  </style>
 </head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
 <body>
-    <div class="container">
-        <h1>Установка VPN ShadowSocks</h1>
-        <p style="text-align: center;">⌛ Установка VPN займет всего 2-3 минуты</p>
-        <p style="text-align: center;">☝️ При возникновении любых затруднений, пиши нам в телеграмм: <a href="https://t.me/FlowVPNx" target="_blank">@FlowVPNx</a></p>
-        
-        <h2>1. Получи ключ доступа</h2>
-        <p>Для начала тебе нужен ключ доступа. Он начинается с <span class="key">ss://</span> и продолжается набором символов. Ключ приходил тебе после оплаты. Но если ты его потерял, то ничего страшного. Если ты покупал подписку в телеграмм-боте, его можно посмотреть в нем (<a href="https://t.me/FlowVPN_xbot" target="_blank">@FlowVPN_xbot</a>)</p>
-        <img src="1.png" alt="1">
-        
-        <h2>2. Скачай приложение Hiddify</h2>
-        <div class="center-text">
-            <p><i class="fa-brands fa-apple"></i> Для iOS: <a href="https://apps.apple.com/us/app/hiddify-next/id6446814690" target="_blank">скачать</a></p>
-            <p><i class="fa-brands fa-android"></i> Для Android: <a href="https://play.google.com/store/apps/details?id=app.hiddify.com" target="_blank">скачать</a></p>
-            <p><i class="fa-brands fa-windows"></i> Для Windows: <a href="https://github.com/hiddify/hiddify-next/releases/download/v2.5.7/Hiddify-Windows-Setup-x64.exe" target="_blank">скачать</a></p>
-            <p><i class="fa-brands fa-linux"></i> Для Linux: <a href="https://github.com/hiddify/hiddify-next/releases" target="_blank">скачать</a></p>
-            <p><i class="fa-brands fa-apple"></i> Для MacOS: <a href="https://apps.apple.com/us/app/hiddify-next/id6446814690" target="_blank">скачать</a></p>
-        </div>
-        
-        <h2>3. Открой приложение Hiddify</h2>
-        
-        <h2>4. Вставь ключ в приложение</h2>
-        <p>Открой Hiddify и вставь скопированный ключ (начинается с <span class="key">ss://</span>) в нужное поле. Затем нажми «Импорт» или «Добавить».</p>
-        <img src="2.png" alt="2">
+  <div class="container">
+    <h1>Установка VPN Vless</h1>
+    <p>⌛ Установка VPN займёт всего 2–3 минуты</p>
+    <p>☝️ Пиши в телеграм, если будут вопросы:
+      <a href="https://t.me/FlowVPNx" target="_blank">@FlowVPNx</a>
+    </p>
 
-        <h2>5. Включи VPN</h2>
-        <p>Чтобы начать пользоваться VPN — просто нажми на кнопку «Подключить». Для отключения — нажми «Отключить».</p>
-        <img src="3.png" alt="3">
+    <h2>1. Получи ключ доступа</h2>
+    <p>
+      Ключ начинается с <span class="key">vless://</span> и хранится в боте.
+      Чтобы посмотреть его снова — открой
+      <a href="https://t.me/FlowVPN_xbot" target="_blank">@FlowVPN_xbot</a>.
+    </p>
+    <img src="1.png" alt="Шаг 1"/>
 
-        <div class="note">
-            ℹ️ При первом подключении система может запросить разрешение на установку VPN-профиля — обязательно разреши.
-        </div>
-
-        <p>🎉 Готово! VPN подключён и готов к использованию</p>
-
-        
+    <h2>2. Скачай приложение Hiddify</h2>
+    <div class="center-text">
+      <p><i class="fa-brands fa-apple"></i> iOS: <a href="https://apps.apple.com/us/app/hiddify-next/id6446814690" target="_blank">скачать</a></p>
+      <p><i class="fa-brands fa-android"></i> Android: <a href="https://play.google.com/store/apps/details?id=app.hiddify.com" target="_blank">скачать</a></p>
+      <p><i class="fa-brands fa-windows"></i> Windows: <a href="https://github.com/hiddify/hiddify-next/releases/download/v2.5.7/Hiddify-Windows-Setup-x64.exe" target="_blank">скачать</a></p>
+      <p><i class="fa-brands fa-linux"></i> Linux: <a href="https://github.com/hiddify/hiddify-next/releases" target="_blank">скачать</a></p>
+      <p><i class="fa-brands fa-apple"></i> macOS: <a href="https://apps.apple.com/us/app/hiddify-next/id6446814690" target="_blank">скачать</a></p>
     </div>
+
+    <h2>3. Открой приложение Hiddify</h2>
+    <h2>4. Вставь ключ</h2>
+    <p>Вставь скопированный <span class="key">vless://…</span> и нажми «Импорт»/«Добавить».</p>
+    <img src="2.png" alt="Шаг 2"/>
+
+    <h2>5. Включи VPN</h2>
+    <p>Жми «Подключить». Для отключения — «Отключить».</p>
+    <img src="3.png" alt="Шаг 3"/>
+
+    <div class="note">
+      ℹ️ При первом подключении разреши установку VPN-профиля.
+    </div>
+    <p>🎉 Готово! VPN подключён и работает.</p>
+  </div>
 </body>
 </html>
